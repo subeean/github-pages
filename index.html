@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        video {
+            max-width: 100%;
+            max-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="Video" autoplay muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+        브라우저가 영상 포맷을 지원하지 않습니다.
+    </video>
+
+    <script>
+        const targetLinks = [
+            "https://forms.gle/7zvm4ezHAQVoDTeV7",
+            "https://forms.gle/QPu1BBnptFUS2vbe8",
+            "https://forms.gle/md2jUAwcJkGwkNmFA"
+        ];
+
+        const videoElement = document.getElementById('Video');
+
+        videoElement.addEventListener('ended', function() {
+            
+            const randomIndex = Math.floor(Math.random() * targetLinks.length);
+
+            window.location.replace(targetLinks[randomIndex]);
+            
+        });
+    </script>
+</body>
+</html>
